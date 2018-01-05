@@ -1,5 +1,11 @@
-describe("waff.createElement", () => {
+import createElement from "../waff/createElement"
+
+describe("createElement", () => {
   it('creates an object with a type', () => {
-    expect(createElement("div")).toBe({"type": "div"})
+    expect(createElement("div")).toEqual({type: "div"})
+  })
+
+  it('creates an object with props', () => {
+    expect(createElement("div", { className: "Waff" })).toEqual({type: "div", props: { className: "Waff" }})
   })
 })
