@@ -1,3 +1,3 @@
-export default function createElement(type) {
-  return {type: type}
+export default function createElement(type, props) {
+  return {type: type, props: props}
 }
