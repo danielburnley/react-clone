@@ -19,6 +19,7 @@
     "regenerator-runtime": "^0.11.1"
   },
   "scripts": {
+    "compile": "babel source/ --out-dir lib",
     "test": "jest"
   }
 }
