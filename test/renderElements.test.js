@@ -11,4 +11,9 @@ describe('render elements', () => {
     let dog = createElement("dog", { className: "Woof" })
     expect(renderElements(dog)).toEqual("<dog className='Woof' />")
   })
+
+  it('renders a single element with a puppy', () => {
+    let dog = createElement("dog", {}, ['puppy'])
+    expect(renderElements(dog)).toEqual("<dog>puppy</dog>")
+  })
 })
