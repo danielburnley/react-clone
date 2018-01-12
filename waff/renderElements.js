@@ -1,7 +1,16 @@
 export default function renderElements(element) {
+  if (typeof element === 'string') {
+    return element
+  }
+
   let type = element.type
-  if (element.children) {
-    return `<${type}>${element.children[0]}</${type}>`
+
+  if (element.children.length > 0) {
+    let childString = ""
+    for (let child of element.children) {
+      childString += renderElements(child)
+    }
+    return `<${type}>${childString}</${type}>`
   }
 
   let propString = ""

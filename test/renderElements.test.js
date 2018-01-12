@@ -13,7 +13,7 @@ describe('render elements', () => {
   })
 
   it('renders a single element with a puppy', () => {
-    let dog = createElement("dog", {}, ['puppy'])
+    let dog = createElement("dog", {}, 'puppy')
     expect(renderElements(dog)).toEqual("<dog>puppy</dog>")
   })
 
@@ -28,7 +28,7 @@ describe('render elements', () => {
   })
 
   it('renders a cat with a kitten', () => {
-    let cat = createElement("cat", {}, ['kitten'])
+    let cat = createElement("cat", {}, 'kitten')
     expect(renderElements(cat)).toEqual("<cat>kitten</cat>")
   })
 
@@ -38,9 +38,10 @@ describe('render elements', () => {
     expect(renderElements(dog)).toEqual(res)
   })
 
-  it('renders a catto with multiple kitties', () => {
-    let catto = createElement("cat", {}, ['smallMiauw', 'tinyMiauw'])
-    let res = "<cat>smallMiauw</cat><cat>tinyMiauw</cat>"
+  it('renders a catto with kitten element', () => {
+    let kitten = createElement("kitten")
+    let catto = createElement("cat", {}, kitten)
+    let res = "<cat><kitten /></cat>"
     expect(renderElements(catto)).toEqual(res)
   })
 })
