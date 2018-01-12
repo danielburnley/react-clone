@@ -3,8 +3,10 @@ export default function renderElements(element) {
   if (element.children) {
     return `<${type}>${element.children[0]}</${type}>`
   }
-  if (element.props) {
-    return `<${type} className='${element.props.className}' />`
+
+  let propString = ""
+  for (let prop in element.props) {
+    propString += `${[prop]}='${element.props[prop]}' `
   }
-  return `<${type} />`
+  return `<${type} ${propString}/>`
 }

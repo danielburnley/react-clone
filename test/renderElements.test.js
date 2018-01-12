@@ -37,4 +37,10 @@ describe('render elements', () => {
     let res = "<dog noise='Woof' cuteness='yes' />"
     expect(renderElements(dog)).toEqual(res)
   })
+
+  it('renders a catto with multiple kitties', () => {
+    let catto = createElement("cat", {}, ['smallMiauw', 'tinyMiauw'])
+    let res = "<cat>smallMiauw</cat><cat>tinyMiauw</cat>"
+    expect(renderElements(catto)).toEqual(res)
+  })
 })
