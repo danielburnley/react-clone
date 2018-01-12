@@ -16,4 +16,9 @@ describe('render elements', () => {
     let dog = createElement("dog", {}, ['puppy'])
     expect(renderElements(dog)).toEqual("<dog>puppy</dog>")
   })
+
+  it('renders a single cat with no props or children', () => {
+    let cat = createElement("cat")
+    expect(renderElements(cat)).toEqual("<cat />")
+  })
 })
