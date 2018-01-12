@@ -31,4 +31,10 @@ describe('render elements', () => {
     let cat = createElement("cat", {}, ['kitten'])
     expect(renderElements(cat)).toEqual("<cat>kitten</cat>")
   })
+
+  it('renders a doggo with multiple props', () => {
+    let dog = createElement("dog", { noise: "Woof", cuteness: "yes" })
+    let res = "<dog noise='Woof' cuteness='yes' />"
+    expect(renderElements(dog)).toEqual(res)
+  })
 })

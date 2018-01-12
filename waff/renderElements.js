@@ -1,9 +1,10 @@
 export default function renderElements(element) {
+  let type = element.type
   if (element.children) {
-    return "<dog>puppy</dog>"
+    return `<${type}>${element.children[0]}</${type}>`
   }
   if (element.props) {
-    return `<${element.type} className='${element.props.className}' />`
+    return `<${type} className='${element.props.className}' />`
   }
-  return `<${element.type} />`
+  return `<${type} />`
 }
