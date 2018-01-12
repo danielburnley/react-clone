@@ -3,7 +3,7 @@ export default function renderElements(element) {
     return "<dog>puppy</dog>"
   }
   if (element.props) {
-    return "<dog className='Woof' />"
+    return `<${element.type} className='${element.props.className}' />`
   }
   return `<${element.type} />`
 }

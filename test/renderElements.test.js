@@ -26,4 +26,9 @@ describe('render elements', () => {
     let cat = createElement("cat", { className: "Meow" })
     expect(renderElements(cat)).toEqual("<cat className='Meow' />")
   })
+
+  it('renders a cat with a kitten', () => {
+    let cat = createElement("cat", {}, ['kitten'])
+    expect(renderElements(cat)).toEqual("<cat>kitten</cat>")
+  })
 })
