@@ -28,7 +28,7 @@ function generatePropString(props) {
   return propString
 }
 
-export default function renderElements(element) {
+function renderElements(element) {
   if (typeof element === 'string') {
     return element
   }
@@ -37,5 +37,13 @@ export default function renderElements(element) {
     return renderElementWithChildren(element)
   } else {
     return renderElementWithoutChildren(element)
+  }
+}
+
+export default function render(element) {
+  if (typeof element.type === 'function') {
+    return renderElements(element.type())
+  } else {
+    return renderElements(element)
   }
 }
