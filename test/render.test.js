@@ -79,6 +79,7 @@ describe('render', () => {
       expect(render(<Dog />)).toEqual('<span />')
     })
 
+    // HINT - merge props and children together
     it('renders a simple component with props', () => {
       let Dog = ({children}) => <span>{children}</span>
       expect(render(<Dog>Woof</Dog>)).toEqual('<span>Woof</span>')
