@@ -27,7 +27,8 @@ export default function render(element) {
   if (typeof element === 'string') {
     return element
   } else if (typeof element.type === 'function') {
-    return render(element.type({children: element.children}))
+    let props = { children: element.children, ...element.props }
+    return render(element.type(props))
   } else if (Array.isArray(element)) {
     return element.map(element => render(element)).join("")
   } else {

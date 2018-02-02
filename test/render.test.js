@@ -96,7 +96,13 @@ describe('render', () => {
       expect(render(<Dog><Pupper /><Pupper /></Dog>)).toEqual('<span><div /><div /></span>')
     })
 
-    it('renders a load of nested stuff??', () => {
+    it('component-ception, the sequel to inception starring Waffles', () => {
+      let Dog = () => <span>Woof woof woof</span>
+      let Waffles = () => <span><Dog /></span>
+      expect(render(<Waffle />)).toEqual('<span><span>Woof woof woof</span></span>')
+    })
+
+    it('renders a load of stuff??', () => {
       let Dog = ({children}) => <span>{children}</span>
       expect(
         render(
@@ -105,6 +111,13 @@ describe('render', () => {
       ).toEqual(
         '<span><span>Woof</span><span>Bark</span></span>'
       )
+    })
+
+    describe.only('put some props in those 🐶🐶🐶🐶', () => {
+      it('renders a doggo with some props', () => {
+      let Dog = (props) => <h1>{props.name} the Dog</h1>
+      expect(render(<Dog name='Waffles'/>)).toEqual('<h1>Waffles the Dog</h1>')
+      })
     })
   })
 })
