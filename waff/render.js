@@ -27,7 +27,9 @@ export default function render(element) {
   if (typeof element === 'string') {
     return element
   } else if (typeof element.type === 'function') {
-    return render(element.type({children: element.children[0]}))
+    return render(element.type({children: element.children}))
+  } else if (Array.isArray(element)) {
+    return element.map(element => render(element)).join("")
   } else {
     return renderElements(element)
   }

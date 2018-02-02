@@ -79,7 +79,7 @@ describe('render', () => {
       expect(render(<Dog />)).toEqual('<span />')
     })
 
-    it('renders a simple component with props', () => {
+    it('renders a simple component with a text node child', () => {
       let Dog = ({children}) => <span>{children}</span>
       expect(render(<Dog>Woof</Dog>)).toEqual('<span>Woof</span>')
     })
@@ -87,7 +87,24 @@ describe('render', () => {
     it('renders a doggo with a single pupper', () => {
       let Dog = ({children}) => <span>{children}</span>
       let Pupper = () => <div></div>
-        expect(render(<Dog><Pupper /></Dog>)).toEqual('<span><div /></span>')
+      expect(render(<Dog><Pupper /></Dog>)).toEqual('<span><div /></span>')
+    })
+
+    it('renders a doggo with two puppers', () => {
+      let Dog = ({children}) => <span>{children}</span>
+      let Pupper = () => <div></div>
+      expect(render(<Dog><Pupper /><Pupper /></Dog>)).toEqual('<span><div /><div /></span>')
+    })
+
+    it('renders a load of nested stuff??', () => {
+      let Dog = ({children}) => <span>{children}</span>
+      expect(
+        render(
+          <Dog><Dog>Woof</Dog><Dog>Bark</Dog></Dog>
+        )
+      ).toEqual(
+        '<span><span>Woof</span><span>Bark</span></span>'
+      )
     })
   })
 })
