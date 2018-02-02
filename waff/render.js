@@ -41,8 +41,9 @@ function renderElements(element) {
 }
 
 export default function render(element) {
+  console.log(element)
   if (typeof element.type === 'function') {
-    return renderElements(element.type())
+    return render(element.type({children: element.children[0]}))
   } else {
     return renderElements(element)
   }

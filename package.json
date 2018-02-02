@@ -1,15 +1,7 @@
 {
   "name": "my-package",
   "version": "1.0.0",
-  "babel": {
-    "presets": [
-      "env"
-    ],
-    "plugins": [
-      "transform-react-jsx"
-    ]
-  },
-  "devDependencies": {
+  "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-jest": "^22.0.4",
