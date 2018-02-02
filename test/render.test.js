@@ -84,16 +84,10 @@ describe('render', () => {
       expect(render(<Dog>Woof</Dog>)).toEqual('<span>Woof</span>')
     })
 
-    it.only('renders a doggo with a single pupper', () => {
+    it('renders a doggo with a single pupper', () => {
       let Dog = ({children}) => <span>{children}</span>
       let Pupper = () => <div></div>
         expect(render(<Dog><Pupper /></Dog>)).toEqual('<span><div /></span>')
-    })
-
-    it.only('renders a doggo with a single pupper', () => {
-      let Dog = ({children}) => <span>{children}</span>
-      let Pupper = () => <div></div>
-        expect(render(<Dog><Pupper /><Pupper /></Dog>)).toEqual('<span><div /><div /></span>')
     })
   })
 })

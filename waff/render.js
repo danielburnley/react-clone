@@ -1,4 +1,4 @@
-function renderElementWithChildren(element) {
+function renderElements(element) {
   let type = element.type
   let childString = ""
   for (let child of element.children) {
@@ -7,15 +7,10 @@ function renderElementWithChildren(element) {
 
   let propString = generatePropString(element.props)
 
+  if (childString.length === 0) {
+    return `<${type}${propString} />`
+  }
   return `<${type}${propString}>${childString}</${type}>`
-}
-
-function renderElementWithoutChildren(element) {
-  let type = element.type
-
-  let propString = generatePropString(element.props)
-
-  return `<${type}${propString} />`
 }
 
 function generatePropString(props) {
@@ -28,20 +23,10 @@ function generatePropString(props) {
   return propString
 }
 
-function renderElements(element) {
+export default function render(element) {
   if (typeof element === 'string') {
     return element
-  }
-
-  if (element.children.length > 0) {
-    return renderElementWithChildren(element)
-  } else {
-    return renderElementWithoutChildren(element)
-  }
-}
-
-export default function render(element) {
-  if (typeof element.type === 'function') {
+  } else if (typeof element.type === 'function') {
     return render(element.type({children: element.children[0]}))
   } else {
     return renderElements(element)
