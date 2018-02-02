@@ -2,7 +2,7 @@ function renderElementWithChildren(element) {
   let type = element.type
   let childString = ""
   for (let child of element.children) {
-    childString += renderElements(child)
+    childString += render(child)
   }
 
   let propString = generatePropString(element.props)
@@ -41,7 +41,6 @@ function renderElements(element) {
 }
 
 export default function render(element) {
-  console.log(element)
   if (typeof element.type === 'function') {
     return render(element.type({children: element.children[0]}))
   } else {
